@@ -17,13 +17,13 @@ namespace BarberShop.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Gender()
         {
-            this.Client = new HashSet<Employee>();
+            this.Client = new HashSet<Client>();
         }
     
         public int ID { get; set; }
         public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Employee> Client { get; set; }
+        public virtual ICollection<Client> Client { get; set; }
     }
 }

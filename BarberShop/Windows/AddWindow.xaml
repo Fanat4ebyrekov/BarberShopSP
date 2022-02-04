@@ -18,7 +18,13 @@
     <Grid Background="Black">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.4*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -37,9 +43,10 @@
                    Text="Добавление"
                    FontSize="50" FontWeight="Bold" Foreground="#DDFFFFFF"
                    />
-        <TextBlock Grid.Row="1"
+        <TextBlock 
+                   Grid.Row="1"
                    Text="Имя"
-                   FontSize="30"
+                   FontSize="25"
                    TextAlignment="Center"
                    HorizontalAlignment="Right"
                    VerticalAlignment="Center"
@@ -49,18 +56,72 @@
 
         <TextBlock Grid.Row="2"
                    Text="Фамилия"
-                   FontSize="30"
+                   FontSize="25"
                    TextAlignment="Center"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Right"
                    FontWeight="Bold"
                    Margin="0 0 10 0" Foreground="#DDFFFFFF"
             />
-        
-
         <TextBlock Grid.Row="3"
+                   Text="Отчество"
+                   FontSize="25"
+                   TextAlignment="Center"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Right"
+                   FontWeight="Bold"
+                   Margin="0 0 10 0" Foreground="#DDFFFFFF"
+
+            />
+        <TextBlock Grid.Row="4"
+                   Text="Почта"
+                   FontSize="25"
+                   TextAlignment="Center"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Right"
+                   FontWeight="Bold"
+                   Margin="0 0 10 0" Foreground="#DDFFFFFF"
+            />
+        <TextBlock Grid.Row="5"
+                   Text="Серия"
+                   FontSize="25"
+                   TextAlignment="Center"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Right"
+                   FontWeight="Bold"
+                   Margin="0 0 10 0" Foreground="#DDFFFFFF"
+            />
+        <TextBlock Grid.Row="6"
+                   Text="Номер"
+                   FontSize="25"
+                   TextAlignment="Center"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Right"
+                   FontWeight="Bold"
+                   Margin="0 0 10 0" Foreground="#DDFFFFFF"
+            />
+
+        <TextBlock Grid.Row="7"
                    Text="Телефон"
-                   FontSize="30"
+                   FontSize="25"
+                   TextAlignment="Center"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Right"
+                   FontWeight="Bold"
+                   Margin="0 0 10 0" Foreground="#DDFFFFFF"
+            />
+        <TextBlock Grid.Row="8"
+                   Text="Login"
+                   FontSize="25"
+                   TextAlignment="Center"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Right"
+                   FontWeight="Bold"
+                   Margin="0 0 10 0" Foreground="#DDFFFFFF"
+            />
+        <TextBlock Grid.Row="9"
+                   Text="Password"
+                   FontSize="25"
                    TextAlignment="Center"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Right"
@@ -71,42 +132,131 @@
         <Button         x:Name="BtnAdd"
             Grid.Row="11"
                         Grid.ColumnSpan="2"
-                        Content="Зарегаться"
+                        Content="Добавить"
                         FontSize="20"
                         HorizontalContentAlignment="Center"
                         Height="30"
                         Width="150"
                         Margin="10"
                         Background="Orange"
-                        Foreground="Black" Cursor="Hand" FontWeight="Bold"
-                        Click="BtnAdd_Click"
+                        Foreground="White" Cursor="Hand" FontWeight="Bold"
+                        Click="BtnAdd_Click" BorderBrush="{x:Null}"
+                        
                         
                     />
         <TextBox x:Name ="FName"
                 Grid.Column="1"
                  Grid.Row="1"
-                 FontSize="20" Cursor="IBeam"
+                 FontSize="25" Cursor="IBeam"
                  Margin="15 0 0 0"
+                 TextChanged="FName_TextChanged"
+                 TextAlignment="Center"
                  
-                  FontWeight="Bold" Foreground="#DDFFFFFF" 
+                 VerticalAlignment="Center"
+                  FontWeight="Bold" Foreground="#DDFFFFFF" Background="{x:Null}" BorderBrush="{x:Null}" 
             />
-        <TextBox x:Name="LName"
-            Background="{x:Null}"
-                Grid.Column="1"
+        <TextBox 
+                 x:Name="LName"
+                 Background="{x:Null}"
+                 Grid.Column="1"
                  Grid.Row="2"
-                 FontSize="20" Cursor="IBeam"
+                 FontSize="25" Cursor="IBeam"
                  Margin="15 0 0 0"
-                 
-                  FontWeight="Bold" Foreground="#DDFFFFFF" 
+                 TextChanged="LName_TextChanged"
+                 TextAlignment="Center"
+              
+                 VerticalAlignment="Center"
+                  FontWeight="Bold" Foreground="#DDFFFFFF" BorderBrush="{x:Null}" 
+            />
+        <TextBox 
+                 x:Name="MName"
+                 Background="{x:Null}"
+                 Grid.Column="1"
+                 Grid.Row="3"
+                 FontSize="25" Cursor="IBeam"
+                 Margin="15 0 0 0"
+                 TextChanged="MName_TextChanged"
+                 TextAlignment="Center"
+              
+                 VerticalAlignment="Center"
+                  FontWeight="Bold" Foreground="#DDFFFFFF" BorderBrush="{x:Null}" 
+            />
+        <TextBox 
+                 x:Name="Email"
+                 Background="{x:Null}"
+                 Grid.Column="1"
+                 Grid.Row="4"
+                 FontSize="25" Cursor="IBeam"
+                 Margin="15 0 0 0"
+                 TextChanged="Email_TextChanged"
+                 TextAlignment="Center"
+              
+                 VerticalAlignment="Center"
+                  FontWeight="Bold" Foreground="#DDFFFFFF" BorderBrush="{x:Null}" 
+            />
+        <TextBox 
+                 x:Name="Series"
+                 Background="{x:Null}"
+                 Grid.Column="1"
+                 Grid.Row="5"
+                 FontSize="25" Cursor="IBeam"
+                 Margin="15 0 0 0"
+                 TextChanged="Series_TextChanged"
+                 TextAlignment="Center"
+              
+                 VerticalAlignment="Center"
+                  FontWeight="Bold" Foreground="#DDFFFFFF" BorderBrush="{x:Null}" 
+            />
+        <TextBox 
+                 x:Name="NumberPass"
+                 Background="{x:Null}"
+                 Grid.Column="1"
+                 Grid.Row="6"
+                 FontSize="25" Cursor="IBeam"
+                 Margin="15 0 0 0"
+                 TextChanged="NumberPass_TextChanged"
+                 TextAlignment="Center"
+              
+                 VerticalAlignment="Center"
+                  FontWeight="Bold" Foreground="#DDFFFFFF" BorderBrush="{x:Null}" 
             />
         <TextBox x:Name="TPhone"
             Background="{x:Null}"
                 Grid.Column="1"
-                 Grid.Row="3"
-                 FontSize="20" Cursor="IBeam"
+                 Grid.Row="7"
+                 FontSize="25" Cursor="IBeam"
                  Margin="15 0 0 0"
-                 
-                  FontWeight="Bold" Foreground="#DDFFFFFF" 
+                 TextChanged="TPhone_TextChanged_1"
+                 TextAlignment="Center"
+                 MaxLength="15"
+                 VerticalAlignment="Center"
+                  FontWeight="Bold" Foreground="#DDFFFFFF" BorderBrush="{x:Null}" 
+            />
+        <TextBox 
+                 x:Name="txbLogin"
+                 Background="{x:Null}"
+                 Grid.Column="1"
+                 Grid.Row="8"
+                 FontSize="25" Cursor="IBeam"
+                 Margin="15 0 0 0"
+                 TextChanged="txbLogin_TextChanged"
+                 TextAlignment="Center"
+              
+                 VerticalAlignment="Center"
+                  FontWeight="Bold" Foreground="#DDFFFFFF" BorderBrush="{x:Null}" 
+            />
+        <TextBox 
+                 x:Name="txbPass"
+                 Background="{x:Null}"
+                 Grid.Column="1"
+                 Grid.Row="9"
+                 FontSize="25" Cursor="IBeam"
+                 Margin="15 0 0 0"
+                 TextChanged="txbPass_TextChanged"
+                 TextAlignment="Center"
+              
+                 VerticalAlignment="Center"
+                  FontWeight="Bold" Foreground="#DDFFFFFF" BorderBrush="{x:Null}" 
             />
     </Grid>
 </Window>

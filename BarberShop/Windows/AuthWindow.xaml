@@ -4,12 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BarberShop.Windows"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         Title="AuthWindow" Height="700" Width="500">
     <Grid>
-        <Image Source="/Images\barber1.png" Stretch="Fill"
+        <Image gif:ImageBehavior.AnimatedSource="/Images\barber1.png"  Stretch="Fill"
                 />
         <StackPanel>
 
@@ -75,7 +76,7 @@
                 Width="200"
                 Margin="75" 
                 HorizontalAlignment="Center" 
-                Click="btAuth_Click" Background="{x:Null}" Foreground="White"
+                Click="btAuth_Click" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}"
                 
             />
             

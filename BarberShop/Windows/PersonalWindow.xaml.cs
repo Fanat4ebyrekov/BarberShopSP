@@ -46,5 +46,10 @@ namespace BarberShop.Windows
             this.Close();
 
         }
+
+        private void AllPersonal_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

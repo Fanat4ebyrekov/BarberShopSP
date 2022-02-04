@@ -5,18 +5,18 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="c549b789ddbd4168ae9a0ae648b6a112" Name="Diagram1">
-        <EntityTypeShape EntityType="BarbyShopModel.Client" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BarbyShopModel.Employee" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BarbyShopModel.Gender" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BarbyShopModel.Order" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="BarbyShopModel.Service" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
-        <EntityTypeShape EntityType="BarbyShopModel.Specialization" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BarbyShopModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
-        <AssociationConnector Association="BarbyShopModel.FK_Client_Gender" ManuallyRouted="false" />
-        <AssociationConnector Association="BarbyShopModel.FK_Order_Client" ManuallyRouted="false" />
-        <AssociationConnector Association="BarbyShopModel.FK_Employee_Specialization" ManuallyRouted="false" />
-        <AssociationConnector Association="BarbyShopModel.FK_Order_Employee" ManuallyRouted="false" />
-        <AssociationConnector Association="BarbyShopModel.FK_Order_Service" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BarbyShopModel.Client" Width="1.5" PointX="3" PointY="1.125" />
+        <EntityTypeShape EntityType="BarbyShopModel.Employee" Width="1.5" PointX="3" PointY="7.875" />
+        <EntityTypeShape EntityType="BarbyShopModel.Gender" Width="1.5" PointX="0.75" PointY="1.625" />
+        <EntityTypeShape EntityType="BarbyShopModel.Order" Width="1.5" PointX="5.25" PointY="1" />
+        <EntityTypeShape EntityType="BarbyShopModel.Service" Width="1.5" PointX="3" PointY="5.125" />
+        <EntityTypeShape EntityType="BarbyShopModel.Specialization" Width="1.5" PointX="0.75" PointY="8.875" />
+        <EntityTypeShape EntityType="BarbyShopModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="4.75" />
+        <AssociationConnector Association="BarbyShopModel.FK_Client_Gender" />
+        <AssociationConnector Association="BarbyShopModel.FK_Order_Client" />
+        <AssociationConnector Association="BarbyShopModel.FK_Employee_Specialization" />
+        <AssociationConnector Association="BarbyShopModel.FK_Order_Employee" />
+        <AssociationConnector Association="BarbyShopModel.FK_Order_Service" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

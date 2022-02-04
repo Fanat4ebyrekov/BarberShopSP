@@ -43,39 +43,37 @@
                 BorderBrush="{x:Null}" 
                 Foreground="{x:Null}"  
                 >
-                <Button.Background>
-                    <ImageBrush ImageSource="/Images/cross.png"/>
-                </Button.Background>
-            </Button>
-            <TextBlock
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/cross.png"/>
+            </Button.Background>
+        </Button>
+        <TextBlock
                 Text="Информация о персонале"
                 FontSize="70"
                 TextAlignment="Center"
                 VerticalAlignment="Center"
                 Margin="60" Foreground="White"
                 />
-            <DataGrid
+        <DataGrid
+            
             x:Name="AllPersonal"
             Grid.Row="1"
-            AutoGenerateColumns="False" BorderBrush="#1FFFFFFF" Foreground="#DDFFFFFF"
+            AutoGenerateColumns="False" SelectionChanged="AllPersonal_SelectionChanged" Background="Black" Foreground="#DDFFFFFF" BorderBrush="{x:Null}"
             
             >
-                <DataGrid.Background>
-                    <SolidColorBrush Color="White" Opacity="0"/>
-                </DataGrid.Background>
 
-                <DataGrid.Columns >
-                    <DataGridTextColumn Header="Имя" Width="*" Binding="{Binding FName}" Foreground="White"/>
-                    <DataGridTextColumn Header="Фамилия" Width="*" Binding="{Binding LName}" Foreground="White"/>
-                    <DataGridTextColumn Header="Отчество" Width="*" Binding="{Binding MName}"/>
-                    <DataGridTextColumn Header="Почта" Width="*" Binding="{Binding Email}"/>
-                    <DataGridTextColumn Header="Серия паспорта" Width="*" Binding="{Binding PassSeries}"/>
-                    <DataGridTextColumn Header="Номер паспорта" Width="*" Binding="{Binding PassNum}"/>
-                    <DataGridTextColumn Header="Телефон" Width="*" Binding="{Binding Phone}"/>
-                    <DataGridTextColumn Header="Логин" Width="*" Binding="{Binding Login}"/>
-                    <DataGridTextColumn Header="Пароль" Width="0.5*" Binding="{Binding Password}"/>
-                </DataGrid.Columns>
-            </DataGrid>
+            <DataGrid.Columns >
+                <DataGridTextColumn Header="Имя" Width="*" Binding="{Binding FName}" Foreground="White"/>
+                <DataGridTextColumn Header="Фамилия" Width="*" Binding="{Binding LName}" Foreground="White"/>
+                <DataGridTextColumn Header="Отчество" Width="*" Binding="{Binding MName}"/>
+                <DataGridTextColumn Header="Почта" Width="*" Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Серия паспорта" Width="*" Binding="{Binding PassSeries}"/>
+                <DataGridTextColumn Header="Номер паспорта" Width="*" Binding="{Binding PassNum}"/>
+                <DataGridTextColumn Header="Телефон" Width="*" Binding="{Binding Phone}"/>
+                <DataGridTextColumn Header="Логин" Width="*" Binding="{Binding Login}"/>
+                <DataGridTextColumn Header="Пароль" Width="0.5*" Binding="{Binding Password}"/>
+            </DataGrid.Columns>
+        </DataGrid>
         <Button
             Grid.Row="2"
                 x:Name="Exit"

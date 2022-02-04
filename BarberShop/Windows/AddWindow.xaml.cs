@@ -30,7 +30,8 @@ namespace BarberShop.Windows
 
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
-        {
+        {       
+            Employee employee = new Employee();
             
             if (!string.IsNullOrWhiteSpace(FName.Text))
             {
@@ -52,7 +53,27 @@ namespace BarberShop.Windows
             }
             if (!string.IsNullOrWhiteSpace(TPhone.Text))
             {
-                employee.TPhone = TPhone.Text;
+                employee.Phone = TPhone.Text;
+            }
+            else
+            {
+                MessageBox.Show("Вы не ввели номер");
+                return;
+            }
+
+            if (!string.IsNullOrWhiteSpace(MName.Text))
+            {
+                employee.MName = TPhone.Text;
+            }
+            else
+            {
+                MessageBox.Show("Вы не ввели отчество");
+                return;
+            }
+
+            if (!string.IsNullOrWhiteSpace(TPhone.Text))
+            {
+                employee.Phone = TPhone.Text;
             }
             else
             {
@@ -61,7 +82,7 @@ namespace BarberShop.Windows
             }
 
             MessageBox.Show("Пользователь добавлен");
-            context.Client.Add(employee);
+            context.Employee.Add(employee);
             try
             {
                 context.SaveChanges();
@@ -76,6 +97,118 @@ namespace BarberShop.Windows
             this.Close();
 
 
+        }
+        
+        private void TPhone_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (sender is TextBox textBox)
+            {
+                textBox.Text = new string
+                    (
+                         textBox.Text.Where(ch => ch >= '+' || (ch >= '0' && ch <= '9')).ToArray()
+                    );
+            }
+        }
+
+        private void LName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (sender is TextBox textBox)
+            {
+                textBox.Text = new string
+                    (
+                         textBox.Text.Where(ch =>(ch >= 'а' && ch <= 'я') || (ch >= 'А' && ch <= 'Я') || ch == 'ё' || ch == 'Ё' || (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z')).ToArray()
+                    );
+            }
+        }
+
+        private void FName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (sender is TextBox textBox)
+            {
+                textBox.Text = new string
+                    (
+                         textBox.Text.Where(ch => (ch >= 'а' && ch <= 'я') || (ch >= 'А' && ch <= 'Я') || ch == 'ё' || ch == 'Ё' || (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z')).ToArray()
+                    );
+            }
+        }
+
+
+
+        private void MName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (sender is TextBox textBox)
+            {
+                textBox.Text = new string
+                    (
+                         textBox.Text.Where(ch => (ch >= 'а' && ch <= 'я') || (ch >= 'А' && ch <= 'Я') || ch == 'ё' || ch == 'Ё' || (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z')).ToArray()
+                    );
+            }
+        }
+
+        private void Email_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (sender is TextBox textBox)
+            {
+                textBox.Text = new string
+                    (
+                         textBox.Text.Where(ch => (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') || ch == '@' || ch == '.').ToArray()
+                    );
+            }
+        }
+
+        private void Series_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (sender is TextBox textBox)
+            {
+                textBox.Text = new string
+                    (
+                         textBox.Text.Where(ch => ch >= '1' && ch <= '9').ToArray()
+                    );
+            }
+        }
+
+        private void NumberPass_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (sender is TextBox textBox)
+            {
+                textBox.Text = new string
+                    (
+                         textBox.Text.Where(ch => (ch >= '1' && ch <= '9')).ToArray()
+                    );
+            }
+        }
+
+        private void TPhone_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+            if (sender is TextBox textBox)
+            {
+                textBox.Text = new string
+                    (
+                         textBox.Text.Where(ch => (ch >= '0' && ch <= '9') || ch >= ')' || ch >= '(').ToArray()
+                    );
+            }
+        }
+
+        private void txbLogin_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (sender is TextBox textBox)
+            {
+                textBox.Text = new string
+                    (
+                         textBox.Text.Where(ch => (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z')).ToArray()
+                    );
+            }
+        }
+
+        private void txbPass_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (sender is TextBox textBox)
+            {
+                textBox.Text = new string
+                    (
+                         textBox.Text.Where(ch => (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') || (ch >= '0' && ch <= '9')).ToArray()
+                    );
+            }
         }
     }
 }

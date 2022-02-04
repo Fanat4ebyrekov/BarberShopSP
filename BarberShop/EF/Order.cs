@@ -22,7 +22,7 @@ namespace BarberShop.EF
         public Nullable<System.DateTime> Start { get; set; }
         public Nullable<System.DateTime> End { get; set; }
     
-        public virtual Employee Client { get; set; }
+        public virtual Client Client { get; set; }
         public virtual Employee Employee { get; set; }
         public virtual Service Service { get; set; }
     }

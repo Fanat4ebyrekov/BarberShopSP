@@ -27,7 +27,7 @@ namespace BarberShop.EF
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Employee> Client { get; set; }
+        public virtual DbSet<Client> Client { get; set; }
         public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<Gender> Gender { get; set; }
         public virtual DbSet<Order> Order { get; set; }
