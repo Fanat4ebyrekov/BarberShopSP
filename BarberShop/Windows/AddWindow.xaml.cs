@@ -24,15 +24,19 @@ namespace BarberShop.Windows
         public AddWindow()
         {
             InitializeComponent();
-           
+            cmbSpecID.ItemsSource = ClassEntities.context.Specialization.ToList();
+            cmbSpecID.DisplayMemberPath = "NameSpecialization";
+            cmbSpecID.SelectedIndex = 0;
         }
 
 
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {       
-            Employee employee = new Employee();
-            
+            EF.Employee employee = new EF.Employee();
+
+            employee.SpecID = cmbSpecID.SelectedIndex + 1;
+
             if (!string.IsNullOrWhiteSpace(FName.Text))
             {
                 employee.FName = FName.Text;
@@ -51,19 +55,11 @@ namespace BarberShop.Windows
                 MessageBox.Show("Вы не ввели фамилию");
                 return;
             }
-            if (!string.IsNullOrWhiteSpace(TPhone.Text))
-            {
-                employee.Phone = TPhone.Text;
-            }
-            else
-            {
-                MessageBox.Show("Вы не ввели номер");
-                return;
-            }
+            
 
             if (!string.IsNullOrWhiteSpace(MName.Text))
             {
-                employee.MName = TPhone.Text;
+                employee.MName = MName.Text;
             }
             else
             {
@@ -80,6 +76,54 @@ namespace BarberShop.Windows
                 MessageBox.Show("Вы не ввели номер");
                 return;
             }
+            if (!string.IsNullOrWhiteSpace(Email.Text))
+            {
+                employee.Email = Email.Text;
+            }
+            else
+            {
+                MessageBox.Show("Вы не ввели почту");
+                return;
+            }
+            if (!string.IsNullOrWhiteSpace(Series.Text))
+            {
+                employee.PassSeries = Series.Text;
+            }
+            else
+            {
+                MessageBox.Show("Вы не ввели серию");
+                return;
+            }
+            if (!string.IsNullOrWhiteSpace(NumberPass.Text))
+            {
+                employee.PassNum = NumberPass.Text;
+            }
+            else
+            {
+                MessageBox.Show("Вы не ввели номер паспорта");
+                return;
+            }
+            if (!string.IsNullOrWhiteSpace(txbLogin.Text))
+            {
+                employee.Login = txbLogin.Text;
+            }
+            else
+            {
+                MessageBox.Show("Вы не ввели логин");
+                return;
+            }
+            if (!string.IsNullOrWhiteSpace(txbPass.Text))
+            {
+                employee.Password = txbPass.Text;
+            }
+            else
+            {
+                MessageBox.Show("Вы не ввели пароль");
+                return;
+            }
+
+            
+
 
             MessageBox.Show("Пользователь добавлен");
             context.Employee.Add(employee);
@@ -91,6 +135,8 @@ namespace BarberShop.Windows
             {
                 MessageBox.Show(ex.Message);
             }
+
+            
             this.Hide();
             PersonalWindow personalWindow = new PersonalWindow();
             personalWindow.ShowDialog();
@@ -209,6 +255,11 @@ namespace BarberShop.Windows
                          textBox.Text.Where(ch => (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') || (ch >= '0' && ch <= '9')).ToArray()
                     );
             }
+        }
+
+        private void cmbSpecID_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

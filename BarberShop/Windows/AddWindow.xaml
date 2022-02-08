@@ -15,10 +15,11 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}">
-    <Grid Background="Black">
+    <Grid Background="Black" Height="434" VerticalAlignment="Top">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="1.4*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -110,7 +111,25 @@
                    FontWeight="Bold"
                    Margin="0 0 10 0" Foreground="#DDFFFFFF"
             />
-        <TextBlock Grid.Row="8"
+        <TextBlock Text="Специализация"
+                   Grid.Row="8"
+                   Foreground="white"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Right"
+                   TextAlignment="Center"
+                   FontSize="25"
+                   FontWeight="Bold"
+                   Margin="0 0 10 0"
+            />
+            <ComboBox x:Name="cmbSpecID"
+                      Grid.Row="8"
+                      Grid.Column="1"
+                      FontSize="25"
+                      SelectionChanged="cmbSpecID_SelectionChanged"
+                      Foreground="Red" Background="White"
+                  
+            />
+            <TextBlock Grid.Row="9"
                    Text="Login"
                    FontSize="25"
                    TextAlignment="Center"
@@ -119,7 +138,7 @@
                    FontWeight="Bold"
                    Margin="0 0 10 0" Foreground="#DDFFFFFF"
             />
-        <TextBlock Grid.Row="9"
+        <TextBlock Grid.Row="10"
                    Text="Password"
                    FontSize="25"
                    TextAlignment="Center"
@@ -236,7 +255,7 @@
                  x:Name="txbLogin"
                  Background="{x:Null}"
                  Grid.Column="1"
-                 Grid.Row="8"
+                 Grid.Row="9"
                  FontSize="25" Cursor="IBeam"
                  Margin="15 0 0 0"
                  TextChanged="txbLogin_TextChanged"
@@ -249,7 +268,7 @@
                  x:Name="txbPass"
                  Background="{x:Null}"
                  Grid.Column="1"
-                 Grid.Row="9"
+                 Grid.Row="10"
                  FontSize="25" Cursor="IBeam"
                  Margin="15 0 0 0"
                  TextChanged="txbPass_TextChanged"

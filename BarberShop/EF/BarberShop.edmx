@@ -89,7 +89,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Employee_Specialization">
+        <Association Name="FK_Employee_Specialization1">
           <End Role="Specialization" Type="Self.Specialization" Multiplicity="0..1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
           <ReferentialConstraint>
@@ -180,7 +180,7 @@
             <End Role="Gender" EntitySet="Gender" />
             <End Role="Client" EntitySet="Client" />
           </AssociationSet>
-          <AssociationSet Name="FK_Employee_Specialization" Association="Self.FK_Employee_Specialization">
+          <AssociationSet Name="FK_Employee_Specialization1" Association="Self.FK_Employee_Specialization1">
             <End Role="Specialization" EntitySet="Specialization" />
             <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
@@ -247,7 +247,7 @@
             <End Role="Client" EntitySet="Client" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <AssociationSet Name="FK_Employee_Specialization" Association="BarbyShopModel.FK_Employee_Specialization">
+          <AssociationSet Name="FK_Employee_Specialization1" Association="BarbyShopModel.FK_Employee_Specialization1">
             <End Role="Specialization" EntitySet="Specialization" />
             <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
@@ -288,7 +288,7 @@
           <Property Name="SpecID" Type="Int32" />
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Specialization" Relationship="BarbyShopModel.FK_Employee_Specialization" FromRole="Employee" ToRole="Specialization" />
+          <NavigationProperty Name="Specialization" Relationship="BarbyShopModel.FK_Employee_Specialization1" FromRole="Employee" ToRole="Specialization" />
           <NavigationProperty Name="Order" Relationship="BarbyShopModel.FK_Order_Employee" FromRole="Employee" ToRole="Order" />
         </EntityType>
         <EntityType Name="Gender">
@@ -330,7 +330,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameSpec" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Employee" Relationship="BarbyShopModel.FK_Employee_Specialization" FromRole="Specialization" ToRole="Employee" />
+          <NavigationProperty Name="Employee" Relationship="BarbyShopModel.FK_Employee_Specialization1" FromRole="Specialization" ToRole="Employee" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -366,7 +366,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Employee_Specialization">
+        <Association Name="FK_Employee_Specialization1">
           <End Type="BarbyShopModel.Specialization" Role="Specialization" Multiplicity="0..1" />
           <End Type="BarbyShopModel.Employee" Role="Employee" Multiplicity="*" />
           <ReferentialConstraint>

@@ -10,7 +10,7 @@
         WindowStartupLocation="CenterScreen"
         Title="AuthWindow" Height="700" Width="500">
     <Grid>
-        <Image gif:ImageBehavior.AnimatedSource="/Images\barber1.png"  Stretch="Fill"
+        <Image Source="/Images/barber1.png"  Stretch="Fill"
                 />
         <StackPanel>
 
@@ -81,14 +81,6 @@
             />
             
         </StackPanel>
-        <MediaElement
-                Height="96"
-                Source="/Videos\papich.gif"
-                Stretch="Uniform"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Top"
-                LoadedBehavior="Play"
-                UnloadedBehavior="Manual"
-                Visibility="Visible" OpacityMask="#FFFB0000"/>
+
     </Grid>
 </Window>

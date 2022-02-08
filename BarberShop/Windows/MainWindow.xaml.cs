@@ -76,5 +76,10 @@ namespace BarberShop.Windows
         {
             this.Close();
         }
+
+        private void Client_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

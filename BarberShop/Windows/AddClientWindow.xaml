@@ -1,0 +1,162 @@
+﻿<Window x:Class="BarberShop.Windows.AddClientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BarberShop.Windows"
+        mc:Ignorable="d"
+        Title="AddWindow" Height="450" Width="800"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    <Grid Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.4*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="1.5*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.ColumnSpan="2"
+                   TextAlignment="Center"
+                   VerticalAlignment="Center"
+                   Text="Добавление"
+                   FontSize="50" FontWeight="Bold" Foreground="#DDFFFFFF"
+                   />
+        <TextBlock 
+                   Grid.Row="1"
+                   Text="Фамилия"
+                   FontSize="25"
+                   TextAlignment="Center"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   FontWeight="Bold"
+                   Margin="0 0 10 0" Foreground="#DDFFFFFF"
+            />
+
+        <TextBlock Grid.Row="2"
+                   Text="Имя"
+                   FontSize="25"
+                   TextAlignment="Center"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Right"
+                   FontWeight="Bold"
+                   Margin="0 0 10 0" Foreground="#DDFFFFFF"
+            />
+        <TextBlock Grid.Row="3"
+                   Text="Почта"
+                   FontSize="25"
+                   TextAlignment="Center"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Right"
+                   FontWeight="Bold"
+                   Margin="0 0 10 0" Foreground="#DDFFFFFF"
+
+            />
+        <TextBlock Grid.Row="4"
+                   Text="Телефон"
+                   FontSize="25"
+                   TextAlignment="Center"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Right"
+                   FontWeight="Bold"
+                   Margin="0 0 10 0" Foreground="#DDFFFFFF"
+            />
+        <TextBlock Grid.Row="5"
+                   Text="Пол"
+                   FontSize="25"
+                   TextAlignment="Center"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Right"
+                   FontWeight="Bold"
+                   Margin="0 0 10 0" Foreground="#DDFFFFFF"
+            />
+        <TextBox x:Name ="LName"
+                Grid.Column="1"
+                 Grid.Row="1"
+                 FontSize="25" Cursor="IBeam"
+                 Margin="15 0 0 0"
+                 TextChanged="LName_TextChanged"
+                 TextAlignment="Center"
+                 
+                 VerticalAlignment="Center"
+                  FontWeight="Bold" Foreground="#DDFFFFFF" Background="{x:Null}" BorderBrush="{x:Null}" 
+            />
+        <TextBox 
+                 x:Name="FName"
+                 Background="{x:Null}"
+                 Grid.Column="1"
+                 Grid.Row="2"
+                 FontSize="25" Cursor="IBeam"
+                 Margin="15 0 0 0"
+                 TextChanged="FName_TextChanged"
+                 TextAlignment="Center"
+              
+                 VerticalAlignment="Center"
+                  FontWeight="Bold" Foreground="#DDFFFFFF" BorderBrush="{x:Null}" 
+            />
+        <TextBox 
+                 x:Name="Email"
+                 Background="{x:Null}"
+                 Grid.Column="1"
+                 Grid.Row="3"
+                 FontSize="25" Cursor="IBeam"
+                 Margin="15 0 0 0"
+                 TextChanged="Email_TextChanged"
+                 TextAlignment="Center"
+              
+                 VerticalAlignment="Center"
+                  FontWeight="Bold" Foreground="#DDFFFFFF" BorderBrush="{x:Null}" 
+            />
+        <TextBox 
+                 x:Name="Phone"
+                 Background="{x:Null}"
+                 Grid.Column="1"
+                 Grid.Row="4"
+                 FontSize="25" Cursor="IBeam"
+                 Margin="15 0 0 0"
+                 TextChanged="Phone_TextChanged"
+                 TextAlignment="Center"
+              
+                 VerticalAlignment="Center"
+                  FontWeight="Bold" Foreground="#DDFFFFFF" BorderBrush="{x:Null}" 
+            />
+        <ComboBox x:Name="cmbGenderID"
+                      Grid.Row="5"
+                      Grid.Column="1"
+                      FontSize="25"
+                      Foreground="Black" Background="White"
+                  
+            />
+        <Button         x:Name="BtnAdd"
+            Grid.Row="6"
+                        Grid.ColumnSpan="2"
+                        Content="Добавить"
+                        FontSize="20"
+                        HorizontalContentAlignment="Center"
+                        Height="40"
+                        Width="150"
+                        Margin="10"
+                        Background="Orange"
+                        Foreground="White" Cursor="Hand" FontWeight="Bold"
+                        BorderBrush="{x:Null}"
+                        Click="BtnAdd_Click"
+                        
+                        
+                    />
+
+    </Grid>
+</Window>
