@@ -5,43 +5,121 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BarberShop.Windows"
         mc:Ignorable="d"
+       Title="ClientWindow" Height="1080" Width="1920"
         WindowStyle="None"
         WindowState="Maximized"
-        Title="ServicesWindow" Height="1080" Width="1920">
-    <Grid>
-        <StackPanel>
-            <Button
-                x:Name="Close"
-                Height="50"
-                Width="50"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Right"
-                Margin="20" Click="Close_Click" 
-                BorderBrush="{x:Null}" 
-                Foreground="{x:Null}"  
-                >
-                <Button.Background>
-                    <ImageBrush ImageSource="/Images/cross.png"/>
-                </Button.Background>
-            </Button>
-            <TextBlock
-                Text="Услуги"
-                FontSize="70"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    <Grid Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock
+                Text="Информация о клиентах"
+                FontSize="60"
                 TextAlignment="Center"
                 VerticalAlignment="Center"
-                Margin="10"
-                />
-            <Button
-                x:Name="Exit" 
-                Content="Выйти"
-                FontSize="35" 
-                Height="70"
-                Width="200"
-                Margin="50"
-                VerticalAlignment="Top"
-                Click="Exit_Click"
+                Margin="40" Foreground="White"
+                Width="1000"
                 />
 
-        </StackPanel>
+        <TextBlock Text="Поиск:"
+                   FontSize="60"
+                   Grid.Row="1"
+                   Width="200"
+                   HorizontalAlignment="Left"
+                   Foreground="White"
+                   TextAlignment="Center"
+                   VerticalAlignment="Center"
+                   
+            />
+        <TextBox Grid.Row="1"
+                 Background="{x:Null}"
+                 Width="500"
+                 HorizontalAlignment="Left"
+                 Height="90"
+                 Margin="200 0 0 0"
+                 VerticalContentAlignment="Center" Cursor="IBeam"
+                 FontSize="60" Foreground="White"
+                 x:Name="tbSearch" 
+                 
+            />
+        <ComboBox x:Name="cbSort"
+                  Width="500"
+                  Grid.Row="1"
+                  Height="90"
+                  FontSize="40"
+                  Margin="500 0 0 0"
+                  
+            />
+        <TextBlock Text="Фильтр:"
+                   FontSize="60"
+                   Grid.Row="1"
+                   Width="250"
+                   HorizontalAlignment="Left"
+                   Foreground="White"
+                   TextAlignment="Center"
+                   VerticalAlignment="Center"
+                   Margin="700 0 0 0"                  
+            />
+        <DataGrid
+            
+            x:Name="AllPersonal"
+            Grid.Row="2"
+            Grid.RowSpan="2"
+            AutoGenerateColumns="False"  Background="{x:Null}" Foreground="#DDFFFFFF" BorderBrush="{x:Null}"
+            
+            >
+
+            <DataGrid.Columns >
+                <DataGridTextColumn Header="Название" Width="*" Binding="{Binding Title}" Foreground="White"/>
+                <DataGridTextColumn Header="Продолжительность" Width="*" Binding="{Binding Duration}" Foreground="White"/>
+                <DataGridTextColumn Header="Цена" Width="*" Binding="{Binding Cost}"/>
+
+            </DataGrid.Columns>
+            <DataGrid.Resources>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Foreground" Value="White" />
+                </Style>
+            </DataGrid.Resources>
+        </DataGrid>
+        <Button
+            Grid.Row="4"
+                x:Name="Exit"
+                Content="Выйти"
+                Height="70"
+                Width="300"
+                FontSize="60" 
+                Margin="500 0 0 0"               
+                HorizontalAlignment="Left"
+                Background="{x:Null}" 
+                Foreground="White" 
+                BorderBrush="{x:Null}" 
+                Cursor="Hand"
+                Click="Exit_Click"
+                />
+        <Button
+            Grid.Row="4"
+                x:Name="BtnAdd"
+                Content="Записаться на услугу"
+                Height="80"
+                Width="650"
+                FontSize="60" 
+                Margin="0 10 400 0"
+                Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}"
+                HorizontalAlignment="Right"
+                
+                />
     </Grid>
+
 </Window>

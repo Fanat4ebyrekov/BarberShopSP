@@ -102,5 +102,37 @@ namespace BarberShop.Windows
         {
             Filter();
         }
+
+        private void AllPersonal_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete || e.Key == Key.Back)
+            { 
+            var resClick = MessageBox.Show($"Удалить пользователя {(AllPersonal.SelectedItem as EF.Client).LName}", "Подтвержение", MessageBoxButton.YesNo, MessageBoxImage.Information);
+
+            try
+            {
+                if (resClick == MessageBoxResult.Yes)
+                {
+                    EF.Client client = new EF.Client();
+                        if (!(AllPersonal.SelectedItem is EF.Client))
+                        {
+                            MessageBox.Show("Запись не выбраны");
+                            return;
+                        }
+                    client = AllPersonal.SelectedItem as EF.Client;
+
+                    ClassEntities.context.Client.Remove(client);
+                    ClassEntities.context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            }
+            Filter();
+        } 
+
     }
 }

@@ -79,6 +79,8 @@
             Grid.RowSpan="2"
             AutoGenerateColumns="False"  Background="{x:Null}" Foreground="#DDFFFFFF" BorderBrush="{x:Null}"
             SelectionChanged="AllPersonal_SelectionChanged"
+            KeyUp="AllPersonal_KeyUp"
+            IsReadOnly="True"
             >
 
             <DataGrid.Columns >

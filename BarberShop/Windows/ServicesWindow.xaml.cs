@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BarberShop.EF;
+using static BarberShop.ClassEntities;
 
 namespace BarberShop.Windows
 {
@@ -22,6 +24,8 @@ namespace BarberShop.Windows
         public ServicesWindow()
         {
             InitializeComponent();
+            AllPersonal.ItemsSource = context.Service.ToList();
+
         }
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
@@ -30,9 +34,6 @@ namespace BarberShop.Windows
             mainWindow.ShowDialog();
             this.Close();
         }
-        private void Close_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
+
     }
 }
