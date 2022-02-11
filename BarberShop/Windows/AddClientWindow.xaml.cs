@@ -27,7 +27,7 @@ namespace BarberShop.Windows
         {
             InitializeComponent();
             cmbGenderID.ItemsSource = ClassEntities.context.Gender.ToList();
-            cmbGenderID.DisplayMemberPath = "NameGender";
+            cmbGenderID.DisplayMemberPath = "Name";
             cmbGenderID.SelectedIndex = 0;
 
 
@@ -61,7 +61,7 @@ namespace BarberShop.Windows
             {
                 textBox.Text = new string
                     (
-                         textBox.Text.Where(ch => (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') || ch == '@' || ch == '.').ToArray()
+                         textBox.Text.Where(ch => (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') || ch == '@' || ch == '.' || (ch >= '0' && ch <= '9')).ToArray()
                     );
             }
         }

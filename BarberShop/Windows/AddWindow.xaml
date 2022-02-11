@@ -245,7 +245,7 @@
                  Grid.Row="7"
                  FontSize="25" Cursor="IBeam"
                  Margin="15 0 0 0"
-                 TextChanged="TPhone_TextChanged_1"
+                 TextChanged="TPhone_TextChanged"
                  TextAlignment="Center"
                  MaxLength="15"
                  VerticalAlignment="Center"

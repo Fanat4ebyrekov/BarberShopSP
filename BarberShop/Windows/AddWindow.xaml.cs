@@ -25,7 +25,7 @@ namespace BarberShop.Windows
         {
             InitializeComponent();
             cmbSpecID.ItemsSource = ClassEntities.context.Specialization.ToList();
-            cmbSpecID.DisplayMemberPath = "NameSpecialization";
+            cmbSpecID.DisplayMemberPath = "NameSpec";
             cmbSpecID.SelectedIndex = 0;
         }
 
@@ -197,7 +197,7 @@ namespace BarberShop.Windows
             {
                 textBox.Text = new string
                     (
-                         textBox.Text.Where(ch => (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') || ch == '@' || ch == '.').ToArray()
+                         textBox.Text.Where(ch => (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') || ch == '@' || ch == '.' || (ch >= '0' && ch <= '9')).ToArray()
                     );
             }
         }
@@ -224,16 +224,7 @@ namespace BarberShop.Windows
             }
         }
 
-        private void TPhone_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-            if (sender is TextBox textBox)
-            {
-                textBox.Text = new string
-                    (
-                         textBox.Text.Where(ch => (ch >= '0' && ch <= '9') || ch >= ')' || ch >= '(').ToArray()
-                    );
-            }
-        }
+        
 
         private void txbLogin_TextChanged(object sender, TextChangedEventArgs e)
         {
