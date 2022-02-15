@@ -23,6 +23,7 @@ namespace BarberShop.Windows
 
         List<EF.Client> clients = new List<EF.Client>();
 
+
         List<string> listForSort = new List<string>()
         {
             "По умолчанию",
@@ -106,33 +107,27 @@ namespace BarberShop.Windows
         private void AllPersonal_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Delete || e.Key == Key.Back)
-            { 
-            var resClick = MessageBox.Show($"Удалить пользователя {(AllPersonal.SelectedItem as EF.Client).LName}", "Подтвержение", MessageBoxButton.YesNo, MessageBoxImage.Information);
-
-            try
             {
+                var resClick = MessageBox.Show($"Удалить пользователя {(AllPersonal.SelectedItem as EF.Client).LName}", "Подтвержение", MessageBoxButton.YesNo, MessageBoxImage.Information);
+
+
                 if (resClick == MessageBoxResult.Yes)
                 {
                     EF.Client client = new EF.Client();
-                        if (!(AllPersonal.SelectedItem is EF.Client))
-                        {
-                            MessageBox.Show("Запись не выбраны");
-                            return;
-                        }
+                    if (!(AllPersonal.SelectedItem is EF.Client))
+                    {
+                        MessageBox.Show("Запись не выбраны");
+                        return;
+                    }
                     client = AllPersonal.SelectedItem as EF.Client;
 
                     ClassEntities.context.Client.Remove(client);
                     ClassEntities.context.SaveChanges();
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            }
             Filter();
-        } 
+        }
+
 
     }
 }

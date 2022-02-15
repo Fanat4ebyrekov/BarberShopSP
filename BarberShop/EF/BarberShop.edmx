@@ -78,7 +78,9 @@
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <Association Name="FK_Client_Gender">
-          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Client" Type="Self.Client" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Gender">
@@ -102,7 +104,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Order_Client">
-          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Client">
@@ -343,7 +347,9 @@
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <Association Name="FK_Client_Gender">
-          <End Type="BarbyShopModel.Gender" Role="Gender" Multiplicity="1" />
+          <End Type="BarbyShopModel.Gender" Role="Gender" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="BarbyShopModel.Client" Role="Client" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Gender">
@@ -355,7 +361,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Order_Client">
-          <End Type="BarbyShopModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="BarbyShopModel.Client" Role="Client" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="BarbyShopModel.Order" Role="Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Client">

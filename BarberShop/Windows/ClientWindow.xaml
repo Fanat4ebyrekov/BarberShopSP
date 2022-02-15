@@ -122,7 +122,20 @@
                 Margin="0 0 500 0"
                 Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}"
                 HorizontalAlignment="Right"
-                Click="BtnAdd_Click"
+                Click="BtnAdd_Click" Cursor="Hand"
+                />
+        <Button
+            Grid.Row="4"
+                x:Name="BtnEdit"
+                Content="Изменить"
+                Height="70"
+                Width="310"
+                FontSize="60" 
+                Margin="0 0 10 0"
+                Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}"
+                HorizontalAlignment="Right"
+                Cursor="Hand"
+                
                 />
     </Grid>
     
