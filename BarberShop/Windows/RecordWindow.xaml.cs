@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static BarberShop.ClassEntities;
+using BarberShop.EF;
 
 namespace BarberShop.Windows
 {
@@ -22,17 +24,37 @@ namespace BarberShop.Windows
         public RecordWindow()
         {
             InitializeComponent();
+            cmClient.ItemsSource = context.Client.ToList();
+            cmClient.DisplayMemberPath = "FName";
+            cmClient.SelectedIndex = 0;
+
+            cmBarber.ItemsSource = context.Employee.ToList();
+            cmBarber.DisplayMemberPath = "FName";
+            cmBarber.SelectedIndex = 0;
+
+            cmService.ItemsSource = context.Service.ToList();
+            cmService.DisplayMemberPath = "Title";
+            cmService.SelectedIndex = 0;
         }
-        private void Exit_Click(object sender, RoutedEventArgs e)
+        private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
             MainWindow mainWindow = new MainWindow();
             mainWindow.ShowDialog();
             this.Close();
         }
-        private void Close_Click(object sender, RoutedEventArgs e)
+
+        private void btnRecord_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Order order = new Order();
+
+            order.IDClient = cmClient.SelectedIndex + 1;
+            order.IDEmp = cmBarber.SelectedIndex + 1;
+            order.IDService = cmService.SelectedIndex + 1;
+
+            MessageBox.Show("Запись добавлен");
+            ClassEntities.context.Order.Add(order);
+            ClassEntities.context.SaveChanges();
         }
     }
 }

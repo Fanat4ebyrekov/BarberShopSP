@@ -76,6 +76,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ClassEntities.cs" />
+    <Compile Include="ClassPD.cs" />
     <Compile Include="EF\BarberShop.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

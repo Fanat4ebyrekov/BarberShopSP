@@ -7,9 +7,9 @@
     <Schema Namespace="Хранилище BarbyShopModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Client">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="IDClient" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDClient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="FName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
@@ -18,15 +18,15 @@
         </EntityType>
         <EntityType Name="Employee">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="IDEmp" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDEmp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="MName" Type="nvarchar" MaxLength="50" />
-          <Property Name="Email" Type="nvarchar" MaxLength="255" />
-          <Property Name="PassSeries" Type="nchar" MaxLength="4" />
-          <Property Name="PassNum" Type="nchar" MaxLength="6" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="PassSeries" Type="nchar" MaxLength="4" Nullable="false" />
+          <Property Name="PassNum" Type="nchar" MaxLength="6" Nullable="false" />
           <Property Name="Phone" Type="nvarchar" MaxLength="20" />
           <Property Name="SpecID" Type="int" />
           <Property Name="Login" Type="nvarchar" MaxLength="50" />
@@ -41,9 +41,9 @@
         </EntityType>
         <EntityType Name="Order">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="IDOrder" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDOrder" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IDEmp" Type="int" Nullable="false" />
           <Property Name="IDClient" Type="int" Nullable="false" />
           <Property Name="IDService" Type="int" Nullable="false" />
@@ -91,7 +91,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Employee_Specialization1">
+        <Association Name="FK_Employee_Specialization">
           <End Role="Specialization" Type="Self.Specialization" Multiplicity="0..1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
           <ReferentialConstraint>
@@ -110,7 +110,7 @@
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Client">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="IDClient" />
             </Principal>
             <Dependent Role="Order">
               <PropertyRef Name="IDClient" />
@@ -118,11 +118,13 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Order_Employee">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="IDEmp" />
             </Principal>
             <Dependent Role="Order">
               <PropertyRef Name="IDEmp" />
@@ -184,7 +186,7 @@
             <End Role="Gender" EntitySet="Gender" />
             <End Role="Client" EntitySet="Client" />
           </AssociationSet>
-          <AssociationSet Name="FK_Employee_Specialization1" Association="Self.FK_Employee_Specialization1">
+          <AssociationSet Name="FK_Employee_Specialization" Association="Self.FK_Employee_Specialization">
             <End Role="Specialization" EntitySet="Specialization" />
             <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
@@ -251,7 +253,7 @@
             <End Role="Client" EntitySet="Client" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <AssociationSet Name="FK_Employee_Specialization1" Association="BarbyShopModel.FK_Employee_Specialization1">
+          <AssociationSet Name="FK_Employee_Specialization" Association="BarbyShopModel.FK_Employee_Specialization">
             <End Role="Specialization" EntitySet="Specialization" />
             <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
@@ -266,9 +268,9 @@
           </EntityContainer>
         <EntityType Name="Client">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="IDClient" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDClient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
@@ -279,20 +281,20 @@
         </EntityType>
         <EntityType Name="Employee">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="IDEmp" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDEmp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="PassSeries" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
-          <Property Name="PassNum" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PassSeries" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
+          <Property Name="PassNum" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="true" />
           <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="SpecID" Type="Int32" />
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Specialization" Relationship="BarbyShopModel.FK_Employee_Specialization1" FromRole="Employee" ToRole="Specialization" />
+          <NavigationProperty Name="Specialization" Relationship="BarbyShopModel.FK_Employee_Specialization" FromRole="Employee" ToRole="Specialization" />
           <NavigationProperty Name="Order" Relationship="BarbyShopModel.FK_Order_Employee" FromRole="Employee" ToRole="Order" />
         </EntityType>
         <EntityType Name="Gender">
@@ -305,9 +307,9 @@
         </EntityType>
         <EntityType Name="Order">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="IDOrder" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDOrder" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IDEmp" Type="Int32" Nullable="false" />
           <Property Name="IDClient" Type="Int32" Nullable="false" />
           <Property Name="IDService" Type="Int32" Nullable="false" />
@@ -334,7 +336,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameSpec" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Employee" Relationship="BarbyShopModel.FK_Employee_Specialization1" FromRole="Specialization" ToRole="Employee" />
+          <NavigationProperty Name="Employee" Relationship="BarbyShopModel.FK_Employee_Specialization" FromRole="Specialization" ToRole="Employee" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -367,14 +369,14 @@
           <End Type="BarbyShopModel.Order" Role="Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Client">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="IDClient" />
             </Principal>
             <Dependent Role="Order">
               <PropertyRef Name="IDClient" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Employee_Specialization1">
+        <Association Name="FK_Employee_Specialization">
           <End Type="BarbyShopModel.Specialization" Role="Specialization" Multiplicity="0..1" />
           <End Type="BarbyShopModel.Employee" Role="Employee" Multiplicity="*" />
           <ReferentialConstraint>
@@ -387,11 +389,13 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Order_Employee">
-          <End Type="BarbyShopModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="BarbyShopModel.Employee" Role="Employee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="BarbyShopModel.Order" Role="Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="IDEmp" />
             </Principal>
             <Dependent Role="Order">
               <PropertyRef Name="IDEmp" />
@@ -431,7 +435,7 @@
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="FName" ColumnName="FName" />
                 <ScalarProperty Name="LName" ColumnName="LName" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDClient" ColumnName="IDClient" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -448,7 +452,7 @@
                 <ScalarProperty Name="MName" ColumnName="MName" />
                 <ScalarProperty Name="LName" ColumnName="LName" />
                 <ScalarProperty Name="FName" ColumnName="FName" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDEmp" ColumnName="IDEmp" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -469,7 +473,7 @@
                 <ScalarProperty Name="IDService" ColumnName="IDService" />
                 <ScalarProperty Name="IDClient" ColumnName="IDClient" />
                 <ScalarProperty Name="IDEmp" ColumnName="IDEmp" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDOrder" ColumnName="IDOrder" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

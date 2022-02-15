@@ -135,7 +135,7 @@
                 Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}"
                 HorizontalAlignment="Right"
                 Cursor="Hand"
-                
+                Click="BtnEdit_Click"
                 />
     </Grid>
     

@@ -70,7 +70,7 @@ namespace BarberShop.Windows
             switch (cbSort.SelectedIndex)
             {
                 case 0:
-                    listEmployee = listEmployee.OrderBy(e => e.ID).ToList();
+                    listEmployee = listEmployee.OrderBy(e => e.IDEmp).ToList();
                     break;
                 case 1:
                     listEmployee = listEmployee.OrderBy(e => e.LName).ToList();
@@ -85,7 +85,7 @@ namespace BarberShop.Windows
                     listEmployee = listEmployee.OrderBy(e => e.SpecID).ToList();
                     break;
                     default:
-                    listEmployee = listEmployee.OrderBy(e => e.ID).ToList();
+                    listEmployee = listEmployee.OrderBy(e => e.IDEmp).ToList();
                     break;
             }
 
@@ -108,6 +108,30 @@ namespace BarberShop.Windows
 
         private void cbSort_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Filter();
+        }
+
+        private void AllPersonal_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete || e.Key == Key.Back)
+            {
+                var resClick = MessageBox.Show($"Удалить пользователя {(AllPersonal.SelectedItem as EF.Client).LName}", "Подтвержение", MessageBoxButton.YesNo, MessageBoxImage.Information);
+
+
+                if (resClick == MessageBoxResult.Yes)
+                {
+                    EF.Employee employee = new EF.Employee();
+                    if (!(AllPersonal.SelectedItem is EF.Employee))
+                    {
+                        MessageBox.Show("Запись не выбраны");
+                        return;
+                    }
+                    employee = AllPersonal.SelectedItem as EF.Employee;
+
+                    ClassEntities.context.Employee.Remove(employee);
+                    ClassEntities.context.SaveChanges();
+                }
+            }
             Filter();
         }
     }

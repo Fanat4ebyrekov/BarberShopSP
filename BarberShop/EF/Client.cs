@@ -20,7 +20,7 @@ namespace BarberShop.EF
             this.Order = new HashSet<Order>();
         }
     
-        public int ID { get; set; }
+        public int IDClient { get; set; }
         public string LName { get; set; }
         public string FName { get; set; }
         public string Email { get; set; }

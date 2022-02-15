@@ -14,7 +14,7 @@ namespace BarberShop.EF
     
     public partial class Order
     {
-        public int ID { get; set; }
+        public int IDOrder { get; set; }
         public int IDEmp { get; set; }
         public int IDClient { get; set; }
         public int IDService { get; set; }

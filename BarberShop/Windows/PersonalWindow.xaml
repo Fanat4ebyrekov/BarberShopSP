@@ -91,12 +91,12 @@
                 Width="1000"
                 />
         <DataGrid
-            
+            IsReadOnly="True"
             x:Name="AllPersonal"
             Grid.Row="2"
             Grid.RowSpan="2"
             AutoGenerateColumns="False" SelectionChanged="AllPersonal_SelectionChanged" Background="{x:Null}" Foreground="#DDFFFFFF" BorderBrush="{x:Null}"
-            
+            KeyUp="AllPersonal_KeyUp"
             >
 
             <DataGrid.Columns >

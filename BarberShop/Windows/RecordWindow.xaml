@@ -7,41 +7,108 @@
         mc:Ignorable="d"
         WindowStyle="None"
         WindowState="Maximized"
-        Title="RecordWindow" Height="1080" Width="1920">
+        Title="RecordWindow" Height="450" Width="800"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
     <Grid>
-        <StackPanel>
-            <Button
-                x:Name="Close"
-                Height="50"
-                Width="50"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Right"
-                Margin="20" Click="Close_Click" 
-                BorderBrush="{x:Null}" 
-                Foreground="{x:Null}"  
-                >
-                <Button.Background>
-                    <ImageBrush ImageSource="/Images/cross.png"/>
-                </Button.Background>
-            </Button>
-            <TextBlock
-                Text="Запись"
-                FontSize="70"
-                TextAlignment="Center"
-                VerticalAlignment="Center"
-                Margin="10"
-                />
-            <Button
-                x:Name="Exit" 
-                Content="Выйти"
-                FontSize="35" 
-                Height="70"
-                Width="200"
-                Margin="50"
-                VerticalAlignment="Top"
-                Click="Exit_Click"
-                />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Image Source="/Images/barber2.png" Stretch="Fill" Grid.RowSpan="6" Grid.ColumnSpan="2"
+            />
+        <TextBlock Text="Запись на прием"
+                   Foreground="White"
+                   FontSize="50"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Grid.ColumnSpan="2"
+            />
+        <TextBlock Text="Клиент"
+                   Foreground="White"
+                   FontSize="25"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   Grid.Row="1"                   
+            />
+        <TextBlock Text="Парикмахер"
+                   Foreground="White"
+                   FontSize="25"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   Grid.Row="2"                   
+            />
+        <TextBlock Text="Услуга"
+                   Foreground="White"
+                   FontSize="25"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   Grid.Row="3"                   
+            />
 
-        </StackPanel>
+        <Button Grid.ColumnSpan="2"
+                Grid.Row="5"
+                Width="200"
+                Height="40"
+                Margin="0 0 200 0"
+                Content="Назад" Background="{x:Null}" BorderBrush="Black"
+                FontSize="25"
+                x:Name="btnBack"
+                Click="btnBack_Click"
+            />
+        <Button Grid.ColumnSpan="2"
+                Grid.Row="5"
+                Width="200"
+                Height="40"
+                Margin="0 0 -300 0"
+                Content="Записаться" Background="{x:Null}" BorderBrush="Black"
+                FontSize="25" 
+                x:Name="btnRecord"
+                Click="btnRecord_Click"
+            />
+        <ComboBox Grid.Row="1"
+                  Grid.Column="1"
+                  Height="50"
+                  Width="300"
+                  HorizontalAlignment="Left"
+                  Margin="10 0 0 0"
+                  x:Name="cmClient" Foreground="Black" Background="White"
+                  HorizontalContentAlignment="Center"
+                  FontSize="25"
+            />
+        <ComboBox Grid.Row="2"
+                  Grid.Column="1"
+                  Height="50"
+                  Width="300"
+                  HorizontalAlignment="Left"
+                  Margin="10 0 0 0"
+                  x:Name="cmBarber" Foreground="Black" Background="White"
+                  HorizontalContentAlignment="Center"
+                  FontSize="25"
+            />
+        <ComboBox Grid.Row="3"
+                  Grid.Column="1"
+                  Height="50"
+                  Width="300"
+                  HorizontalAlignment="Left"
+                  Margin="10 0 0 0"
+                  x:Name="cmService" Foreground="Black" Background="White"
+                  HorizontalContentAlignment="Center"
+                  FontSize="25"
+            />
+
     </Grid>
 </Window>

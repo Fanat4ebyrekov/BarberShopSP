@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using static BarberShop.ClassEntities;
+using BarberShop.EF;
 
 namespace BarberShop.Windows
 {
@@ -49,7 +50,7 @@ namespace BarberShop.Windows
             switch (cbSort.SelectedIndex)
             {
                 case 0:
-                    clients = clients.OrderBy(e => e.ID).ToList();
+                    clients = clients.OrderBy(e => e.IDClient).ToList();
                     break;
                 case 1:
                     clients = clients.OrderBy(e => e.FName).ToList();
@@ -62,7 +63,7 @@ namespace BarberShop.Windows
                     break;
               
                 default:
-                    clients = clients.OrderBy(e => e.ID).ToList();
+                    clients = clients.OrderBy(e => e.IDClient).ToList();
                     break;
             }
 
@@ -128,6 +129,30 @@ namespace BarberShop.Windows
             Filter();
         }
 
+        private void BtnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            if (AllPersonal.SelectedItem is Client client)
+            {
+                var resMAss = MessageBox.Show($"Вы хотите изменить пользователя {client.LName}  {client.FName}", "Предупреждение", MessageBoxButton.YesNo);
+                if (resMAss == MessageBoxResult.Yes)
+                {
+                    this.Hide();
+                    AddClientWindow clientWindow = new AddClientWindow();
+                    ClassPD.IDClient = client.IDClient;
+                    clientWindow.ShowDialog();
+                    this.Close();
 
+                    
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show($"Вы не выбрали пользователя", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }
