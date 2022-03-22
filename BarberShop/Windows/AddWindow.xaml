@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BarberShop.Windows"
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
-        Title="AddWindow" Height="450" Width="800"
+        Title="AddWindow" Height="1080" Width="1920"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -15,10 +15,10 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}">
-    <Grid Background="Black" Height="434" VerticalAlignment="Top">
+    <Grid Background="Black" >
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="1.4*"/>
+            <RowDefinition Height="1.7*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -29,8 +29,8 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-
-            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2.5*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -124,8 +124,7 @@
             <ComboBox x:Name="cmbSpecID"
                       Grid.Row="8"
                       Grid.Column="1"
-                      FontSize="25"
-                      SelectionChanged="cmbSpecID_SelectionChanged"
+                      FontSize="25"                   
                       Foreground="Red" Background="White"
                   
             />
@@ -147,9 +146,45 @@
                    FontWeight="Bold"
                    Margin="0 0 10 0" Foreground="#DDFFFFFF"
             />
+        <TextBlock Grid.Row="11"
+                   Text="Фото"
+                   FontSize="25"
+                   TextAlignment="Center"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Right"
+                   FontWeight="Bold"
+                   Foreground="White"
+                   Margin="0 0 10 0"
+            />
+        <Border Grid.Column="1"
+                Grid.Row="11"
+                Width="80"
+                Height="80"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                BorderThickness="2"
+                BorderBrush="DarkGray"
+                CornerRadius="20"
+                Background="LightGray"
+                Margin="10 0 0 0">
+
+            <Image x:Name="photoUser"/>
+
+        </Border>
+
+        <Button x:Name="btnEdit"
+                Grid.Row="11"
+                Grid.Column="1"
+                Content="Выбрать фото"
+                Width="150" Background="{x:Null}" 
+                BorderBrush="{x:Null}" 
+                Cursor="Hand"
+                Click="btnEdit_Click"
+            />
+        
 
         <Button         x:Name="BtnAdd"
-            Grid.Row="11"
+                        Grid.Row="12"
                         Grid.ColumnSpan="2"
                         Content="Добавить"
                         FontSize="20"

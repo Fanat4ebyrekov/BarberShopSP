@@ -38,21 +38,34 @@
                 Content="Католог услуг"
                 FontSize="50"
                 Height="100"
-                Margin="20" Click="Services_Click" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"
+                Margin="20" 
+                Click="Services_Click" 
+                BorderBrush="{x:Null}" 
+                Background="{x:Null}" 
+                Foreground="White"
                 />
             <Button
                 x:Name="Record"
                 Content="Запись на услуг"
                 FontSize="50"
                 Height="100"
-                Margin="20" Click="Record_Click" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"
+                Margin="20" 
+                Click="Record_Click" 
+                BorderBrush="{x:Null}" 
+                Background="{x:Null}" 
+                Foreground="White"
                 />
             <Button
                 x:Name="Client"
                 Content="Клиенты"
                 FontSize="50"
                 Height="100"
-                Margin="20" Click="Client_Click" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Cursor="Hand"
+                Margin="20" 
+                Click="Client_Click" 
+                BorderBrush="{x:Null}" 
+                Background="{x:Null}" 
+                Foreground="White" 
+                Cursor="Hand"
                 />
             <Button
                 x:Name="Personal"

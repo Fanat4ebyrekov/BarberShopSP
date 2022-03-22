@@ -7,41 +7,229 @@
         mc:Ignorable="d"
         WindowStyle="None"
         WindowState="Maximized"
-        Title="ReportWindow" Height="1080" Width="1920">
-    <Grid>
-        <StackPanel>
-            <Button
+        Title="ReportWindow" Height="1080" Width="1920"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    <Grid Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button
                 x:Name="Close"
                 Height="50"
                 Width="50"
-                VerticalAlignment="Center"
+                VerticalAlignment="Top"
                 HorizontalAlignment="Right"
                 Margin="20" Click="Close_Click" 
                 BorderBrush="{x:Null}" 
                 Foreground="{x:Null}"  
                 >
-                <Button.Background>
-                    <ImageBrush ImageSource="/Images/cross.png"/>
-                </Button.Background>
-            </Button>
-            <TextBlock
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/cross.png"/>
+            </Button.Background>
+        </Button>
+        
+        <TextBlock
                 Text="Отчет"
                 FontSize="70"
                 TextAlignment="Center"
                 VerticalAlignment="Center"
                 Margin="10"
+                Foreground="White"
                 />
-            <Button
+        <Button
                 x:Name="Exit" 
                 Content="Выйти"
                 FontSize="35" 
                 Height="70"
                 Width="200"
                 Margin="50"
-                VerticalAlignment="Top"
+                VerticalAlignment="Center"
                 Click="Exit_Click"
+                Grid.Row="3"
                 />
+        <TextBlock Grid.Row="1"
+                   Text="Зарплата:"
+                   Foreground="White"
+                   FontSize="60"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Right"
+                   Margin="0 0 500 0"
+            />
+        <TextBlock Grid.Row="1"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Right"
+                   Margin="0 0 300 0"
+            />
+        <TextBlock 
+                   Grid.Row="1"
+                   Text="Поиск"
+                   Foreground="White"
+                   FontSize="60"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+                   
+            />
+        <TextBox x:Name="tbSearch"
+                 Grid.Row="1"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 Margin=""
+            />
+        <ListView x:Name="AllPersonalTwo"
+                    Grid.Row="1"
+                    KeyUp="AllPersonal_KeyUp"
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                    BorderBrush="#FFAA9264"
+                    Background="#FF0F0F0F" Foreground="Black">
 
-        </StackPanel>
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border
+                        BorderBrush="#FFA28A60"
+                        BorderThickness="2"
+                        CornerRadius="10"
+                        Width="800"
+                        Height="100"
+                        Margin="10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <Image Grid.Column="0"
+                                    Grid.Row="0"
+                                    Grid.RowSpan="3"
+                                    Width="100"
+                                    Height="100">
+                                <Image.Source>
+                                    <Binding Path="Photo">
+                                        <Binding.TargetNullValue>
+                                            <ImageSource>/BarberShop;component/Videos/Zxcursed.gif</ImageSource>
+                                        </Binding.TargetNullValue>
+                                    </Binding>
+                                </Image.Source>
+                            </Image>
+
+                            <TextBlock Text="Фамилия:"
+                                        Grid.Column="1"
+                                        Grid.Row="0"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Right"
+                                        Margin="0 0 10 0"
+                                        FontSize="20"
+                                        Foreground="#FFA28A60"/>
+
+                            <TextBlock Text="Имя:"
+                                       Grid.Column="1"
+                                       Grid.Row="1"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"
+                                       Margin="0 0 10 0"
+                                       FontSize="20"
+                                       Foreground="#FFA28A60"/>
+
+                            <TextBlock Text="Телефон:"
+                                        Grid.Column="1"
+                                        Grid.Row="2"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Right"
+                                        Margin="0 0 10 0"
+                                        FontSize="20"
+                                        Foreground="#FFA28A60"/>
+
+
+                            <TextBlock Text="{Binding Path = LName}"
+                                        Grid.Column="2"
+                                        Grid.Row="0"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Left"
+                                        Margin="0 0 10 0"
+                                        FontSize="20"
+                                        Foreground="#FFA28A60"/>
+
+                            <TextBlock Text="{Binding Path = FName}"
+                                        Grid.Column="2"
+                                        Grid.Row="1"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Left"
+                                        Margin="0 0 10 0"
+                                        FontSize="20"
+                                        Foreground="#FFA28A60"/>
+
+                            <TextBlock Text="{Binding Path = Phone}"
+                                        Grid.Column="2"
+                                        Grid.Row="2"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Left"
+                                        Margin="0 0 10 0"
+                                        FontSize="20"
+                                        Foreground="#FFA28A60"/>
+
+                            <TextBlock Text="Логин:"
+                                        Grid.Column="3"
+                                        Grid.Row="1"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Right"
+                                        Margin="0 0 10 0"
+                                        FontSize="20"
+                                        Foreground="#FFA28A60"/>
+
+                            <TextBlock Text="Пароль:"
+                                        Grid.Column="3"
+                                        Grid.Row="2"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Right"
+                                        Margin="0 0 10 0"
+                                        FontSize="20"
+                                        Foreground="#FFA28A60"/>
+
+                            <TextBlock Text="{Binding Path = Login}"
+                                        Grid.Column="4"
+                                        Grid.Row="1"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Left"
+                                        Margin="0 0 10 0"
+                                        FontSize="20"
+                                        Foreground="#FFA28A60"/>
+
+                            <TextBlock Text="{Binding Path = Password}"
+                                        Grid.Column="4"
+                                        Grid.Row="2"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Left"
+                                        Margin="0 0 10 0"
+                                        FontSize="20"
+                                        Foreground="#FFA28A60"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
     </Grid>
 </Window>

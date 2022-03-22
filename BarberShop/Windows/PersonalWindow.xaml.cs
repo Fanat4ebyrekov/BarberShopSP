@@ -36,7 +36,7 @@ namespace BarberShop.Windows
         public PersonalWindow()
         {
             InitializeComponent();
-            AllPersonal.ItemsSource = context.Employee.ToList();
+            AllPersonalTwo.ItemsSource = context.Employee.ToList();
             cbSort.ItemsSource = listForSort;
             cbSort.SelectedIndex = 0;
             Filter();
@@ -93,7 +93,7 @@ namespace BarberShop.Windows
             {
                 MessageBox.Show("Записей нет"); 
             }
-            AllPersonal.ItemsSource = listEmployee; 
+            AllPersonalTwo.ItemsSource = listEmployee; 
         }
 
         private void AllPersonal_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -115,23 +115,32 @@ namespace BarberShop.Windows
         {
             if (e.Key == Key.Delete || e.Key == Key.Back)
             {
-                var resClick = MessageBox.Show($"Удалить пользователя {(AllPersonal.SelectedItem as EF.Client).LName}", "Подтвержение", MessageBoxButton.YesNo, MessageBoxImage.Information);
+                var resClick = MessageBox.Show($"Удалить пользователя {(AllPersonalTwo.SelectedItem as EF.Employee).LName}", "Подтвержение", MessageBoxButton.YesNo, MessageBoxImage.Information);
 
 
                 if (resClick == MessageBoxResult.Yes)
                 {
                     EF.Employee employee = new EF.Employee();
-                    if (!(AllPersonal.SelectedItem is EF.Employee))
+                    if (!(AllPersonalTwo.SelectedItem is EF.Employee))
                     {
                         MessageBox.Show("Запись не выбраны");
                         return;
                     }
-                    employee = AllPersonal.SelectedItem as EF.Employee;
+                    employee = AllPersonalTwo.SelectedItem as EF.Employee;
 
                     ClassEntities.context.Employee.Remove(employee);
                     ClassEntities.context.SaveChanges();
                 }
             }
+            Filter();
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            EF.Employee userEdit = AllPersonalTwo.SelectedItem as EF.Employee;
+
+            EditWindow addEmployeeWindow = new EditWindow(userEdit);
+            addEmployeeWindow.ShowDialog();
             Filter();
         }
     }

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static BarberShop.ClassEntities;
 
 namespace BarberShop.Windows
 {
@@ -19,9 +20,12 @@ namespace BarberShop.Windows
     /// </summary>
     public partial class ReportWindow : Window
     {
+        List<EF.Employee> listEmployee = new List<EF.Employee>();
         public ReportWindow()
         {
             InitializeComponent();
+            AllPersonalTwo.ItemsSource = context.Employee.ToList();
+            Filter();
         }
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
@@ -33,6 +37,20 @@ namespace BarberShop.Windows
         private void Close_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Filter()
+        {
+            listEmployee = ClassEntities.context.Employee.ToList();
+            listEmployee = listEmployee.Where(e => e.LName.Contains(tbSearch.Text) || e.FName.Contains(tbSearch.Text) || e.Phone.Contains(tbSearch.Text)).ToList();
+
+           
+
+            if (listEmployee.Count == 0)
+            {
+                MessageBox.Show("Записей нет");
+            }
+            AllPersonalTwo.ItemsSource = listEmployee;
         }
     }
 }

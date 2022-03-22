@@ -15,6 +15,7 @@
           <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Phone" Type="nvarchar" MaxLength="20" />
           <Property Name="IDGendr" Type="int" Nullable="false" />
+          <Property Name="IsDeleted" Type="int" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -31,6 +32,8 @@
           <Property Name="SpecID" Type="int" />
           <Property Name="Login" Type="nvarchar" MaxLength="50" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="Photo" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
@@ -50,6 +53,7 @@
           <Property Name="IsCompleted" Type="bit" Nullable="false" />
           <Property Name="Start" Type="datetime" />
           <Property Name="End" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="Service">
           <Key>
@@ -78,9 +82,7 @@
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <Association Name="FK_Client_Gender">
-          <End Role="Gender" Type="Self.Gender" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
           <End Role="Client" Type="Self.Client" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Gender">
@@ -276,6 +278,7 @@
           <Property Name="Email" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="IDGendr" Type="Int32" Nullable="false" />
+          <Property Name="IsDeleted" Type="Int32" />
           <NavigationProperty Name="Gender" Relationship="BarbyShopModel.FK_Client_Gender" FromRole="Client" ToRole="Gender" />
           <NavigationProperty Name="Order" Relationship="BarbyShopModel.FK_Order_Client" FromRole="Client" ToRole="Order" />
         </EntityType>
@@ -294,6 +297,8 @@
           <Property Name="SpecID" Type="Int32" />
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Specialization" Relationship="BarbyShopModel.FK_Employee_Specialization" FromRole="Employee" ToRole="Specialization" />
           <NavigationProperty Name="Order" Relationship="BarbyShopModel.FK_Order_Employee" FromRole="Employee" ToRole="Order" />
         </EntityType>
@@ -316,6 +321,7 @@
           <Property Name="IsCompleted" Type="Boolean" Nullable="false" />
           <Property Name="Start" Type="DateTime" Precision="3" />
           <Property Name="End" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Client" Relationship="BarbyShopModel.FK_Order_Client" FromRole="Order" ToRole="Client" />
           <NavigationProperty Name="Employee" Relationship="BarbyShopModel.FK_Order_Employee" FromRole="Order" ToRole="Employee" />
           <NavigationProperty Name="Service" Relationship="BarbyShopModel.FK_Order_Service" FromRole="Order" ToRole="Service" />
@@ -349,9 +355,7 @@
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <Association Name="FK_Client_Gender">
-          <End Type="BarbyShopModel.Gender" Role="Gender" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Type="BarbyShopModel.Gender" Role="Gender" Multiplicity="1" />
           <End Type="BarbyShopModel.Client" Role="Client" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Gender">
@@ -430,6 +434,7 @@
           <EntitySetMapping Name="Client">
             <EntityTypeMapping TypeName="BarbyShopModel.Client">
               <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="IDGendr" ColumnName="IDGendr" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
@@ -442,6 +447,8 @@
           <EntitySetMapping Name="Employee">
             <EntityTypeMapping TypeName="BarbyShopModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="SpecID" ColumnName="SpecID" />
@@ -467,6 +474,7 @@
           <EntitySetMapping Name="Order">
             <EntityTypeMapping TypeName="BarbyShopModel.Order">
               <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="End" ColumnName="End" />
                 <ScalarProperty Name="Start" ColumnName="Start" />
                 <ScalarProperty Name="IsCompleted" ColumnName="IsCompleted" />

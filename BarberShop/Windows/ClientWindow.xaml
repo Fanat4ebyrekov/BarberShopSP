@@ -89,6 +89,7 @@
                 <DataGridTextColumn Header="Почта" Width="*" Binding="{Binding Email}"/>
                 <DataGridTextColumn Header="Телефон" Width="*" Binding="{Binding Phone}"/>
                 <DataGridTextColumn Header="Пол" Width="*" Binding="{Binding Gender.Name}"/>
+                <DataGridTextColumn Header="Услуга" Width="*" Binding="{Binding Service.Title}" Foreground="White"/>
                 
             </DataGrid.Columns>
             <DataGrid.Resources>

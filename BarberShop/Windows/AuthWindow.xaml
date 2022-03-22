@@ -10,11 +10,15 @@
         WindowStartupLocation="CenterScreen"
         Title="AuthWindow" Height="700" Width="500">
     <Grid>
-        <Image Source="/Images/barber1.png"  Stretch="Fill"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="687*"/>
+            <RowDefinition Height="13*"/>
+        </Grid.RowDefinitions>
+        <Image Source="/Images/barber1.png"  Stretch="Fill" Grid.RowSpan="2"
                 />
-        <StackPanel>
+        <StackPanel Grid.RowSpan="2">
 
-            
+
             <Button
                 x:Name="Close"
                 Height="30"
@@ -79,7 +83,7 @@
                 Click="btAuth_Click" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}"
                 
             />
-            
+
         </StackPanel>
 
     </Grid>
