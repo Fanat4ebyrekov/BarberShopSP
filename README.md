@@ -13,7 +13,9 @@
 ![image](https://user-images.githubusercontent.com/81490021/160234018-6cd3efc7-4780-46bd-b1c0-d4a73a56fc8b.png) <br>
 Добавление клиента <br>
 ![image](https://user-images.githubusercontent.com/81490021/155683143-7621e55d-4feb-44e1-9e5b-9541df6e34d1.png) <br>
-Добавление персонала
+Добавление персонала <br>
 ![image](https://user-images.githubusercontent.com/81490021/155683286-a383cafc-4764-40a6-9704-537089b8d3c2.png) <br>
-Отчет c выводом зарплаты
+Редактирование персонала <br>
+![image](https://user-images.githubusercontent.com/81490021/160234157-08abd021-0a51-4a80-a5bd-3627a6b095e1.png) <br>
+Отчет c выводом зарплаты <br>
 ![image](https://user-images.githubusercontent.com/81490021/160234068-54619051-db35-4091-abb4-30f0332e4436.png) <br>
