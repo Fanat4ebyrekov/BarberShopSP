@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31105.61
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarberShop", "BarberShop\BarberShop.csproj", "{0B09DB6E-29A9-43CD-BA5B-802F30D0CBA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSumm", "TestSumm\TestSumm.csproj", "{C313DE81-9B48-4BDD-BCC5-0B88847D0BB4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{0B09DB6E-29A9-43CD-BA5B-802F30D0CBA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B09DB6E-29A9-43CD-BA5B-802F30D0CBA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B09DB6E-29A9-43CD-BA5B-802F30D0CBA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C313DE81-9B48-4BDD-BCC5-0B88847D0BB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C313DE81-9B48-4BDD-BCC5-0B88847D0BB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C313DE81-9B48-4BDD-BCC5-0B88847D0BB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C313DE81-9B48-4BDD-BCC5-0B88847D0BB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

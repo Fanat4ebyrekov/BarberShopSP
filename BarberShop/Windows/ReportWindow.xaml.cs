@@ -52,5 +52,31 @@ namespace BarberShop.Windows
             }
             AllPersonalTwo.ItemsSource = listEmployee;
         }
+
+
+
+        private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Filter();
+        }
+
+        private void Res_Click(object sender, RoutedEventArgs e)
+        {
+            var User = (AllPersonalTwo.SelectedItem as EF.Employee);
+
+            var listServices = context.Order.ToList().Where(i => i.IDEmp == User.IDEmp).Select(i => i.IDService).ToList();
+
+            double summ = 0;
+
+            foreach (var item in listServices)
+            {
+                summ = summ + Convert.ToDouble(context.Service.ToList().Where(i => i.ID == item).FirstOrDefault().Cost);
+
+            }
+
+            var res = summ * 0.3 * 0.87;
+
+            Result.Text = res.ToString();
+        }
     }
 }

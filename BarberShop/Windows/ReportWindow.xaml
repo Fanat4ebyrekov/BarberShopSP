@@ -57,6 +57,19 @@
                 Click="Exit_Click"
                 Grid.Row="3"
                 />
+        <Button
+                x:Name="Res" 
+                Content="Зарплата"
+                FontSize="35" 
+                Height="70"
+                Width="200"
+                Margin="50"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right"
+                Click="Res_Click"
+                Grid.Row="3"
+                
+                />
         <TextBlock Grid.Row="1"
                    Text="Зарплата:"
                    Foreground="White"
@@ -69,10 +82,14 @@
                    VerticalAlignment="Center"
                    HorizontalAlignment="Right"
                    Margin="0 0 300 0"
+                   x:Name="Result"
+                   Width="200"
+                   Foreground="White"
+                   FontSize="60"
             />
         <TextBlock 
                    Grid.Row="1"
-                   Text="Поиск"
+                   Text="Поиск:"
                    Foreground="White"
                    FontSize="60"
                    VerticalAlignment="Center"
@@ -83,14 +100,19 @@
                  Grid.Row="1"
                  HorizontalAlignment="Center"
                  VerticalAlignment="Center"
-                 Margin=""
+                 Margin="0 0 1000 0"
+                 Foreground="White"
+                 Width="500"
+                 Height="90"
+                 TextChanged="tbSearch_TextChanged"
             />
         <ListView x:Name="AllPersonalTwo"
-                    Grid.Row="1"
-                    KeyUp="AllPersonal_KeyUp"
+                    Grid.Row="2"
+                    
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                     BorderBrush="#FFAA9264"
-                    Background="#FF0F0F0F" Foreground="Black">
+                    Background="#FF0F0F0F" Foreground="Black"
+                    >
 
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
