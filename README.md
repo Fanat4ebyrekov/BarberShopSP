@@ -16,6 +16,6 @@
 Добавление персонала <br>
 ![image](https://user-images.githubusercontent.com/81490021/155683286-a383cafc-4764-40a6-9704-537089b8d3c2.png) <br>
 Редактирование персонала <br>
-![image](https://user-images.githubusercontent.com/81490021/160234157-08abd021-0a51-4a80-a5bd-3627a6b095e1.png) <br>
+![image](https://user-images.githubusercontent.com/81490021/160234225-9c0cc733-6e0c-41b6-862d-6f0b9ef00f9c.png) <br>
 Отчет c выводом зарплаты <br>
 ![image](https://user-images.githubusercontent.com/81490021/160234068-54619051-db35-4091-abb4-30f0332e4436.png) <br>
